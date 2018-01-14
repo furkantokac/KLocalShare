@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=KLocalShare
+Exec=python3 [-HOMEDIR-]/.klocalshare/klocalshare.py
+Icon=[-HOMEDIR-]/.klocalshare/data/appicon.png
+Comment=File sharing platform on local area network.
+Terminal=false
