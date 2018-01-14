@@ -53,13 +53,15 @@ class KSender:
             data = data.encode("utf-8")
         self.socket.send(data)
 
-if __name__ == "main":
+
+if __name__ == "__main__":
     host = KHost("0.0.0.0", 9301)
-    file = KFileReader("/home/user/Downloads/distros/linuxmint-18.2-cinnamon-64bit.iso", 2**13)
+    file = KFileReader("/home/user/Downloads/distros/linuxmint-18.2-cinnamon-64bit.iso", 2 ** 13)
 
     sender = KSender(host, file)
 
     import time
+
     current = time.time()
     sender.start_sending()
-    print(time.time()-current)
+    print(time.time() - current)

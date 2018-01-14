@@ -54,12 +54,13 @@ class KReceiver:
 
     def recv(self, sender):
         data = sender.recv(16).decode("utf-8")
-        #print("DATA :", data)
+        # print("DATA :", data)
         data_len = int(data)
         # data_len = int(sender.recv(16).decode("utf-8"))
         return sender.recv(data_len)
 
-if __name__ == "main":
+
+if __name__ == "__main__":
     host = KHost("0.0.0.0", 9301)
     file = KFileWriter("/home/user/Downloads/distros/new_linuxmint-18.2-cinnamon-64bit2.iso")
 
