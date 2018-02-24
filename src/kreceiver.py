@@ -12,7 +12,7 @@ class KReceiver:
         :type khost: KHost
         :type kfilewriter: KFileWriter
         """
-        self.host = khost
+        self.sender = khost
         self.file = kfilewriter
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -62,7 +62,7 @@ class KReceiver:
 
 if __name__ == "__main__":
     host = KHost("0.0.0.0", 9301)
-    file = KFileWriter("/home/user/Downloads/distros/new_linuxmint-18.2-cinnamon-64bit2.iso")
+    file = KFileWriter("/home/ft/Downloads/new-linuxmint-18.2-cinnamon-64bit2.iso")
 
     receiver = KReceiver(host, file)
     receiver.start_listening()

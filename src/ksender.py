@@ -13,7 +13,7 @@ class KSender:
         :type kfilereader: KFileReader
         """
 
-        self.host = khost
+        self.receiver = khost
         self.file = kfilereader
 
         # Create socket
@@ -21,7 +21,7 @@ class KSender:
 
     def start_sending(self):
         # Connect to receiver
-        self.socket.connect((self.host.addr, self.host.port))
+        self.socket.connect((self.receiver.addr, self.receiver.port))
 
         # Send header
         # self.socket.send(self.file.get_header().encode("utf-8"))
@@ -56,7 +56,7 @@ class KSender:
 
 if __name__ == "__main__":
     host = KHost("0.0.0.0", 9301)
-    file = KFileReader("/home/user/Downloads/distros/linuxmint-18.2-cinnamon-64bit.iso", 2 ** 13)
+    file = KFileReader("/home/ft/Downloads/distros/linuxmint-18.2-cinnamon-64bit2.iso", 2 ** 13)
 
     sender = KSender(host, file)
 
