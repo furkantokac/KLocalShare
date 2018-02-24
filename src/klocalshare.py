@@ -1,5 +1,3 @@
-__version__ = "0.1"
-
 # -*- coding: utf-8 -*-
 from PyQt5.QtCore import QModelIndex
 
@@ -13,7 +11,7 @@ from kreceiver import KReceiver
 from kfile import *
 from khost import *
 
-__version__ = "1.0"
+__version__ = "0.5"
 
 
 class KLocalShare(QMainWindow):

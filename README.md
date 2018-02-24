@@ -2,10 +2,9 @@
 File sharing platform on local area network over socket. Python3, PyQt5
 
 Screenshots :
-Available soon
 
+![Send file](https://github.com/furkantokac/KLocalShare/blob/master/docs/ss/KLocalShareV0.5_1.png)
 <!--```
-![Save new member](https://github.com/furkantokac/KLocalShare/blob/master/docs/ss/KLocalShareV0.5_1.png)
 ```-->
 
 ### Usage
