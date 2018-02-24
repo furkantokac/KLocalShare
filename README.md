@@ -1,4 +1,4 @@
-# KLocalShare V0.1
+# KLocalShare V0.5
 File sharing platform on local area network over socket. Python3, PyQt5
 
 Screenshots :
