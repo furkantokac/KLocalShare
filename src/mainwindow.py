@@ -12,6 +12,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(459, 151)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("data/appicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralWidget)
@@ -70,7 +73,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "KLocalShare"))
         self.label_2.setText(_translate("MainWindow", "File Path"))
         self.btn_receiveSaveDir.setText(_translate("MainWindow", "Save to directory..."))
         self.btn_receive.setText(_translate("MainWindow", "Receive File"))

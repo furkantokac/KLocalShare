@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>KLocalShare</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>data/appicon.png</normaloff>data/appicon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
