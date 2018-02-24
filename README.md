@@ -8,6 +8,13 @@ Available soon
 ![Save new member](https://github.com/furkantokac/KLocalShare/blob/master/docs/ss/KLocalShareV0.5_1.png)
 ```-->
 
+### Usage
+1) Person that will receive the file (receiver) choose the save file directory by clicking "Save to directory..." button.
+2) Receiver clicks the "Receive File" button.
+3) Person that will send the file (sender) choose which file to send by clicking "Browse" button.
+4) Sender clicks the "Send File" button.
+5) DONE!
+
 ### Requirements
 * Python3+ (Python2 is not tested)
 * PyQt5
@@ -20,5 +27,5 @@ Available soon
 4) python3 [klocalshare.py](https://github.com/furkantokac/KLocalShare/blob/master/src/klocalshare.py)
 
 ### Development Tools
-* [Qt Creator](https://www.qt.io/download-open-source) - GUI Design Editor
+* [Qt Creator](https://www.qt.io/download-open-source) - GUI Designer
 * [PyCharm](https://www.jetbrains.com/pycharm/) - Python IDE

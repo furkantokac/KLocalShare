@@ -62,7 +62,7 @@ class KReceiver:
 
 if __name__ == "__main__":
     host = KHost("0.0.0.0", 9301)
-    file = KFileWriter("/home/ft/Downloads/new-linuxmint-18.2-cinnamon-64bit2.iso")
+    file = KFileWriter("/home/ft/Downloads/new-ft.zip")
 
     receiver = KReceiver(host, file)
     receiver.start_listening()

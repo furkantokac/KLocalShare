@@ -3,54 +3,68 @@ __version__ = "0.1"
 # -*- coding: utf-8 -*-
 from PyQt5.QtCore import QModelIndex
 
-import mainwindow, sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
+import mainwindow, sys, config
+
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5.QtGui import QIcon
+
+from ksender import KSender
+from kreceiver import KReceiver
+from kfile import *
+from khost import *
 
 __version__ = "1.0"
 
-class Frec(QMainWindow):
+
+class KLocalShare(QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.ui = mainwindow.Ui_MainWindow();
         self.ui.setupUi(self)
 
+        self.dirs = config.dirs
+
         self.init_klocalshare()
-        #self.setWindowIcon(QIcon(self.dirs.appicon))
+        self.setWindowIcon(QIcon(self.dirs.appicon))
 
     def init_klocalshare(self):
-        #self.setTabOrder(self.ui.lne_firstName, self.ui.lne_lastName)
-        #self.setTabOrder(self.ui.lne_lastName, self.ui.comboBox_department)
-
+        # self.setTabOrder(self.ui.lne_bisey1, self.ui.lne_name)    # First tab order
+        # self.setTabOrder(self.ui.lne_bisey2, self.ui.lne_surName) # Second tab order
         self.ui.btn_receive.clicked.connect(self.receive)
-        '''
-        self.ui.btn_register.clicked.connect(self.save_new_member)
-        self.ui.btn_delete.clicked.connect(self.delete_member)
-        self.ui.btn_createDesktopEntry.clicked.connect(self.create_desktop_entry)
-        self.ui.btn_clear.clicked.connect(self.clear_form)
-        self.ui.btn_export.clicked.connect(self.export_cvs)
-        self.ui.btn_import.clicked.connect(self.import_cvs)
-        self.ui.btn_exportAsCVS.clicked.connect(self.export_cvs)
-        self.ui.checkBox_saveLocal.stateChanged.connect(self.save_local)
-
-        self.ui.btn_connectDb.clicked.connect(self.connect_db)
-
-        self.connect_db()
-        self.show_member_at_tableWidget()'''
+        self.ui.btn_send.clicked.connect(self.send)
+        self.ui.btn_sendBrowse.clicked.connect(self.browser)
+        self.ui.btn_receiveSaveDir.clicked.connect(self.saveDir)
 
     def receive(self):
-        self.show_message("Receive file...")
+        host = KHost("0.0.0.0", 9301)
+        file = KFileWriter(self.dirName + "/new-ft.zip")
+
+        receiver = KReceiver(host, file)
+        receiver.start_listening()
+        receiver.socket.close()
 
     def send(self):
-        self.show_message("Sending file...")
+        host = KHost("0.0.0.0", 9301)
+        file = KFileReader(self.fileName, 2 ** 13)
+        sender = KSender(host, file)
+        sender.start_sending()
 
     def show_message(self, msg, timeout=3000):
         self.ui.statusBar.showMessage(msg, timeout)
 
+    def browser(self):
+        self.fileName = QFileDialog.getOpenFileName()[0]
+        self.ui.lne_senderFilePath.setText(self.fileName)
+
+    def saveDir(self):
+        self.dirName = QFileDialog.getExistingDirectory()
+        self.ui.lne_receiverFilePath.setText(self.dirName)
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    myapp = Frec()
+    myapp = KLocalShare()
 
     myapp.show()
     sys.exit(app.exec_())

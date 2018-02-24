@@ -55,8 +55,8 @@ class KSender:
 
 
 if __name__ == "__main__":
-    host = KHost("0.0.0.0", 9301)
-    file = KFileReader("/home/ft/Downloads/distros/linuxmint-18.2-cinnamon-64bit2.iso", 2 ** 13)
+    host = KHost("10.143.8.204", 9301)
+    file = KFileReader("/home/ft/Downloads/ft.zip", 4096)
 
     sender = KSender(host, file)
 

@@ -36,9 +36,9 @@
          <widget class="QLineEdit" name="lne_receiverFilePath"/>
         </item>
         <item row="0" column="2">
-         <widget class="QPushButton" name="btn_receiveBrowse">
+         <widget class="QPushButton" name="btn_receiveSaveDir">
           <property name="text">
-           <string>Browse</string>
+           <string>Save to directory...</string>
           </property>
          </widget>
         </item>
